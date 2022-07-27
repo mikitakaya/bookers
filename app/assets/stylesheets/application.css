@@ -14,13 +14,6 @@
  *= require_self
  */
 
-/* リセットCSS */
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-}
-
 body {
  background-color: #fff;
  color: #333;
@@ -142,6 +135,23 @@ input[type="hidden" i] {
 
 input[type="text" i] {
  padding: 1px 2px;
+}
+
+input[type="submit" i] {
+ appearance: auto;
+ user-select: none;
+ white-space: pre;
+ align-items: flex-start;
+ text-align: center;
+ cursor: default;
+ box-sizing: border-box;
+ background-color: buttonface;
+ color: buttontext;
+ padding: 1px 6px;
+ border-width: 2px;
+ border-style: outset;
+ border-color: buttonborder;
+ border-image: initial;
 }
 
 input {
