@@ -1,2 +1,175 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<body>
+ <p id="notice"></p>
+ <h1>Books</h1>
+
+ <table>
+
+  <thead>
+   <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th colspan="3"></th>
+   </tr>
+  </thead>
+
+  <tbody>
+   <!-- １行目始まり -->
+   <tr>
+    <td>リーダブルコード</td>
+    <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
+
+    <td>
+     <a class="show_87984" href="/books/87984">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87984" href="/books/87984/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87984" rel="nofollow" data-method="delete" href="/books/87984">Destroy</a>
+    </td>
+   </tr>
+   <!-- １行目終わり -->
+
+   <!-- ２行目始まり -->
+   <tr>
+    <td>トラブル知らずのシステム設計</td>
+   　<td>システム設計の要点を図解で説明してくれます</td>
+
+    <td>
+   　<a class="show_87985" href="/books/87985">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87985" href="/books/87985/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87985" rel="nofollow" data-method="delete" href="/books/87985">Destroy</a>
+    </td>
+   </tr>
+   <!-- ２行目終わり -->
+
+   <!-- ３行目始まり -->
+   <tr>
+    <td>たのしいRuby</td>
+   　<td>Rubyの入門におすすめです</td>
+
+    <td>
+   　<a class="show_87986" href="/books/87986">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87986" href="/books/87986/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87986" rel="nofollow" data-method="delete" href="/books/87986">Destroy</a>
+    </td>
+   </tr>
+   <!-- ３行目終わり -->
+
+   <!-- ４行目始まり -->
+   <tr>
+    <td>入門Git</td>
+   　<td>gitについての基本操作から内部構造まで解説してくれます</td>
+
+    <td>
+   　<a class="show_87987" href="/books/87987">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87987" href="/books/87987/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87987" rel="nofollow" data-method="delete" href="/books/87987">Destroy</a>
+    </td>
+   </tr>
+   <!-- ４行目終わり -->
+
+   <!-- ５行目始まり -->
+   <tr>
+    <td>アルゴリズム図鑑</td>
+   　<td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
+
+    <td>
+   　<a class="show_87988" href="/books/87988">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87988" href="/books/87988/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87988" rel="nofollow" data-method="delete" href="/books/87988">Destroy</a>
+    </td>
+   </tr>
+　 <!-- ５行目終わり -->
+
+　 <!-- ６行目始まり -->
+   <tr>
+    <td>達人プログラマー</td>
+   　<td>プログラマ入門者は必読！</td>
+
+    <td>
+   　<a class="show_87989" href="/books/87989">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87989" href="/books/87989/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87989" rel="nofollow" data-method="delete" href="/books/87989">Destroy</a>
+    </td>
+   </tr>
+　 <!-- ６行目終わり -->
+
+　 <!-- ７行目始まり -->
+   <tr>
+    <td>データベース実践入門</td>
+   　<td>効率的なSQL文を教えてくれます</td>
+
+    <td>
+   　<a class="show_87990" href="/books/87990">Show</a>
+    </td>
+
+    <td>
+     <a class="show_87990" href="/books/87990/edit">Edit</a>
+    </td>
+
+    <td>
+     <a data-confirm="Are you sure?" class="destroy_87990" rel="nofollow" data-method="delete" href="/books/87990">Destroy</a>
+    </td>
+   </tr>
+　 <!-- ７行目終わり -->
+
+  </tbody>
+ </table>
+
+ <h2>New book</h2>
+  <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
+   <input name="utf8" type="hidden" value="✓">
+   <input type="hidden" name="authenticity_token" value="v8ApnpTotIqq7z/XoiTwa2XluBzXdK7IhS/HTo98fQPM2oDwHebBcUELlJLGLJlCPCc21RqQFT5hFlk99celnA==">
+
+   <!-- タイトル -->
+   <div class="field">
+    <lavel for="book_title">Title</lavel>
+    <input class="book_title" type="text" name="book[title]" id="book_title">
+   </div>
+
+   <!-- 本文 -->
+   <div class="field">
+    <lavel for="book_body">Body</lavel>
+    <textarea class="book_body" name="book[body]" id="book_body"></textarea>
+   </div>
+
+   <!-- 投稿 -->
+   <div class="actions">
+    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
+   </div>
+
+  </form>
+</body>
