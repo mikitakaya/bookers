@@ -1,7 +1,6 @@
 <body>
  <p id="notice"></p>
  <h1>Books</h1>
-
  <table>
   <thead>
    <tr>
@@ -18,7 +17,7 @@
     <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
 
     <td>
-     <a class="show_87984" href="/books/87984">Show</a>
+     <%= link_to "Show", book_path(book.id) %>
     </td>
 
     <td>
@@ -167,27 +166,29 @@
   </tbody>
  </table>
 
+<!-- 新規登録機能の作成 -->
  <h2>New book</h2>
-  <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
-   <input name="utf8" type="hidden" value="✓">
-   <input type="hidden" name="authenticity_token" value="v8ApnpTotIqq7z/XoiTwa2XluBzXdK7IhS/HTo98fQPM2oDwHebBcUELlJLGLJlCPCc21RqQFT5hFlk99celnA==">
 
-   <!-- タイトル -->
-   <div class="field">
-    <lavel for="book_title">Title</lavel>
-    <input class="book_title" type="text" name="book[title]" id="book_title">
-   </div>
+ <!-- form_with部分 -->
+ <%= form_with model: @book, url: '/books',method: :post do |f| %>
+
+  <!-- タイトル -->
+  <div class="field">
+   <lavel for="book_title">Title</lavel>
+   <%= f.text_field :title %>
+  </div>
 
    <!-- 本文 -->
    <div class="field">
     <lavel for="book_body">Body</lavel>
-    <textarea class="book_body" name="book[body]" id="book_body"></textarea>
+    <%= f.text_area :body %>
    </div>
 
    <!-- 投稿 -->
    <div class="actions">
-    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
+    <%= f.submit 'Create Book' %>
    </div>
+  <% end %>
 
   </form>
 </body>
