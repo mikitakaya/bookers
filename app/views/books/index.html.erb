@@ -2,34 +2,32 @@
  <p id="notice"></p>
 
  <h1>Books</h1>
- 
- <% @books.each do |book| %>
-  <table>
-   <thead>
-    <tr>
-     <th>Title</th>
-     <th>Body</th>
-     <th colspan="3"></th>
-    </tr>
-   </thead>
 
-   <tbody>
-    <!-- １行目始まり -->
-    <tr>
-     <td><%= @book.title %></td>
-     <td><%= @book.body %></td>
-     
-     <%= link_to "Show", book_path(book.id) %>
+ <table>
+  <!-- テーブルのヘッダー -->
+  <thead>
+   <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th colspan="3"></th>
+   </tr>
+  </thead>
 
-     <p>Edit</p>
+  <!-- テーブルの本体部分 -->
+  <tbody>
+   <tr>
+    <!--投稿データを全て順番に表示する-->
+    <% @books.each do |book| %>
+     <td><%= book.title %></td>
+     <td><%= book.body %></td>
+     <td><%= link_to "Show", book_path(book.id) %></td>
+     <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+     <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
+    <% end %>
+   </tr>
+  </tbody>
+ </table>
 
-     <p>Destroy</p>
-    </tr>
-   <!-- １行目終わり -->
-   
-   </tbody>
-  </table>
- <% end %>
 
  <!-- 新規登録機能の作成 -->
  <h2>New book</h2>
