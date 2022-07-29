@@ -1,11 +1,11 @@
 <body>
  <h1>Editing Book</h1>
- <form class="edit_book" id="edit_book_path(book.id)" action="/books/:id" accept-charset="utf-8" method="post">
-  <input name="utf-8" type="hidden" value="︎✓">
-  <input type="hidden" name="_method" value="patch">
-  <input type="hidden" name="authenticity_token" value="Ut8PqI7/6OBCeTDjU10+D1X9FWy/Eym29P76aI/5WwjmVkN9gknXjYC58puPpaXdgVOXbdiHK2GnZxq3w3ZvpA==">
 
-  <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+ <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+  <form class="edit_book" id="edit_book_path(book.id)" action="/books/:id" accept-charset="utf-8" method="post">
+   <input name="utf8" type="hidden" value="✓">
+   <input type="hidden" name="_method" value="patch">
+   <input type="hidden" name="authenticity_token" value="Ut8PqI7/6OBCeTDjU10+D1X9FWy/Eym29P76aI/5WwjmVkN9gknXjYC58puPpaXdgVOXbdiHK2GnZxq3w3ZvpA==">
 
    <!-- タイトル -->
    <div class="field">
@@ -23,11 +23,11 @@
    <div class="actions">
     <%= f.submit 'Update Book' %>
    </div>
+  </form>
 
-   <%= link_to "Show", book_path(@book.id) %>
-   |
-   <%= link_to "Back", "/books" %>
+  <%= link_to "Show", book_path(@book.id) %>
+  |
+  <%= link_to "Back", "/books" %>
+ <% end %>
 
-  <% end %>
- </form>
 </body>
