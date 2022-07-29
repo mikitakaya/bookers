@@ -7,11 +7,15 @@ class BooksController < ApplicationController
 
   def create
    # データを受け取り新規登録するためのインスタンス作成
-   book = Book.new(book_params)
-   # データをデータベースに保存するためのsaveメソッド実行
-   book.save
-   # 詳細画面へリダイレクト
-   redirect_to book_path(book.id)
+   @book = Book.new(book_params)
+   # モデルで返されたバリデーションの結果を、コントローラで検出する
+   if @book.save
+    # trueの場合、詳細画面（show）にリダイレクトする
+    redirect_to book_path(@book.id)
+   else
+    # falseの場合、投稿一覧画面（index）を再表示する
+    render :index
+   end
   end
 
   def show
