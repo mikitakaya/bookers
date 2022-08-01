@@ -7,6 +7,16 @@
    <input type="hidden" name="_method" value="patch">
    <input type="hidden" name="authenticity_token" value="Ut8PqI7/6OBCeTDjU10+D1X9FWy/Eym29P76aI/5WwjmVkN9gknXjYC58puPpaXdgVOXbdiHK2GnZxq3w3ZvpA==">
 
+   <!-- エラーメッセージ -->
+   <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+    <ul>
+     <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+     <% end %>
+    </ul>
+   <% end %>
+
    <!-- タイトル -->
    <div class="field">
     <label for="book_title">Title</label>

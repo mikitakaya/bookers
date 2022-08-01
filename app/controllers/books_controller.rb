@@ -30,8 +30,12 @@ class BooksController < ApplicationController
 
  def update
   book = Book.find(params[:id])
-  book.update(book_params)
-  redirect_to book_path(book.id)
+  if @book.update(book_params)
+   # trueの場合、詳細画面（show）にリダイレクトする
+   redirect_to book_path(book.id)
+   # falseの場合、編集画面（edit）を再表示する
+   render :edit
+  end
  end
 
  def destroy
