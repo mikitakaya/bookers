@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+ protect_from_forgery
 
  def index
   @books = Book.all
@@ -29,10 +30,11 @@ class BooksController < ApplicationController
  end
 
  def update
-  book = Book.find(params[:id])
+  @book = Book.find(params[:id])
   if @book.update(book_params)
    # trueの場合、詳細画面（show）にリダイレクトする
    redirect_to book_path(book.id)
+  else
    # falseの場合、編集画面（edit）を再表示する
    render :edit
   end
