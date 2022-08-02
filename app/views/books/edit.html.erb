@@ -2,10 +2,6 @@
  <h1>Editing Book</h1>
 
  <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-  <form class="edit_book" id="edit_book_path(book.id)" action="/books/:id" accept-charset="utf-8" method="post">
-   <input name="utf8" type="hidden" value="✓">
-   <input type="hidden" name="_method" value="patch">
-   <input type="hidden" name="authenticity_token" value="Ut8PqI7/6OBCeTDjU10+D1X9FWy/Eym29P76aI/5WwjmVkN9gknXjYC58puPpaXdgVOXbdiHK2GnZxq3w3ZvpA==">
 
    <!-- エラーメッセージ -->
    <% if @book.errors.any? %>

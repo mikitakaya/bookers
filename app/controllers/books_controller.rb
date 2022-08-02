@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
- protect_from_forgery
 
  def index
   @books = Book.all
@@ -11,8 +10,8 @@ class BooksController < ApplicationController
   @book = Book.new(book_params)
   # モデルで返されたバリデーションの結果を、コントローラで検出する
   if @book.save
-   # フラッシュメッセージ
    # trueの場合、詳細画面（show）にリダイレクトする
+   # フラッシュメッセージ
    redirect_to book_path(@book.id), notice: "Book was successfully created."
   else
    # falseの場合、投稿一覧画面（index）を再表示する
@@ -24,12 +23,13 @@ class BooksController < ApplicationController
  def update
   @book = Book.find(params[:id])
   if @book.update(book_params)
-   # フラッシュメッセージ
    # trueの場合、詳細画面（show）にリダイレクトする
+   # フラッシュメッセージ
    redirect_to book_path(@book.id), notice: "Book was successfully updated."
   else
-   # falseの場合、編集画面（edit）を再表示する
-   render :edit
+   # falseの場合、投稿一覧画面（index）を再表示する
+   @books = Book.all
+   render :index
   end
  end
 
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   # データ（レコード）を削除
   book.destroy
   # index投稿一覧へリダイレクト
-  redirect_to '/books'
+  redirect_to '/books', notice: "Book was successfully destroyed."
  end
 
  private
