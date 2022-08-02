@@ -1,4 +1,3 @@
-<body>
  <!-- フラッシュメッセージ -->
  <p id="notice">
   <%= flash[:notice] %>
@@ -18,16 +17,16 @@
 
   <!-- テーブルの本体部分 -->
   <tbody>
-   <tr>
-    <!--投稿データを全て順番に表示する-->
-    <% @books.each do |book| %>
+   <!--投稿データを全て順番に表示する-->
+   <% @books.each do |book| %>
+    <tr>
      <td><%= book.title %></td>
      <td><%= book.body %></td>
      <td><%= link_to "Show", book_path(book.id) %></td>
      <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-     <td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
-    <% end %>
-   </tr>
+     <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
+    </tr>
+   <% end %>
   </tbody>
  </table>
 
@@ -50,13 +49,13 @@
 
   <!-- タイトル -->
   <div class="field">
-   <lavel for="book_title">Title</lavel>
+   <label for="book_title">Title</label>
    <%= f.text_field :title %>
   </div>
 
   <!-- 本文 -->
   <div class="field">
-   <lavel for="book_body">Body</lavel>
+   <label for="book_body">Body</label>
    <%= f.text_area :body %>
   </div>
 
@@ -65,4 +64,3 @@
    <%= f.submit 'Create Book' %>
   </div>
  <% end %>
-</body>

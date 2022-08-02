@@ -1,9 +1,3 @@
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
-}
-
 body {
  background-color: #fff;
  color: #333;
@@ -52,10 +46,6 @@ p, ol, ul, td {
  margin: 33px;
 }
 
-a:visited {
- color: #666;
-}
-
 tr {
  display: table-row;
  vertical-align: inherit;
@@ -70,19 +60,18 @@ td {
  vertical-align: inherit;
 }
 
-a {
- color: #000;
-}
-
 a:-webkit-any-link {
  color: -webkit-link;
  cursor: pointer;
  text-decoration: underline;
 }
 
-form {
- display: block;
- margin-top: 0em;
+a {
+ color: #000;
+}
+
+a:visited {
+ color: #666;
 }
 
 input[type="hidden" i] {
@@ -143,13 +132,8 @@ div.field, div.actions {
  margin-bottom: 10px;
 }
 
-div {
- display: block;
-}
-
 label {
  display: block;
- cursor: default;
 }
 
 textarea {

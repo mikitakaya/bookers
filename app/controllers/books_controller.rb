@@ -48,7 +48,8 @@ class BooksController < ApplicationController
   # データ（レコード）を削除
   book.destroy
   # index投稿一覧へリダイレクト
-  redirect_to '/books', notice: "Book was successfully destroyed."
+  redirect_to '/books', notice:
+  flash[:notice] = "Book was successfully destroyed."
  end
 
  private
