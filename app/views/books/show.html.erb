@@ -1,7 +1,11 @@
 <body>
 
  <!-- フラッシュメッセージ -->
- <p id="notice"><%= flash[:notice] %></p>
+ <% if flash[:notice] %>
+  <p id="notice">
+   <%= flash[:notice] %>
+  </p>
+ <% end %>
 
  <!-- タイトル -->
  <p>

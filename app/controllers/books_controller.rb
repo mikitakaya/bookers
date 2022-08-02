@@ -9,17 +9,27 @@ class BooksController < ApplicationController
  def create
   # データを受け取り新規登録するためのインスタンス作成
   @book = Book.new(book_params)
-
   # モデルで返されたバリデーションの結果を、コントローラで検出する
   if @book.save
    # フラッシュメッセージ
-   flash[:notice] = "Book was successfully created."
    # trueの場合、詳細画面（show）にリダイレクトする
-   redirect_to book_path(@book.id)
+   redirect_to book_path(@book.id), notice: "Book was successfully created."
   else
    # falseの場合、投稿一覧画面（index）を再表示する
    @books = Book.all
    render :index
+  end
+ end
+
+ def update
+  @book = Book.find(params[:id])
+  if @book.update(book_params)
+   # フラッシュメッセージ
+   # trueの場合、詳細画面（show）にリダイレクトする
+   redirect_to book_path(@book.id), notice: "Book was successfully updated."
+  else
+   # falseの場合、編集画面（edit）を再表示する
+   render :edit
   end
  end
 
@@ -30,17 +40,6 @@ class BooksController < ApplicationController
 
  def edit
   @book = Book.find(params[:id])
- end
-
- def update
-  @book = Book.find(params[:id])
-  if @book.update(book_params)
-   # trueの場合、詳細画面（show）にリダイレクトする
-   redirect_to book_path(book.id)
-  else
-   # falseの場合、編集画面（edit）を再表示する
-   render :edit
-  end
  end
 
  def destroy
