@@ -28,7 +28,6 @@ class BooksController < ApplicationController
    redirect_to book_path(@book.id), notice: "Book was successfully updated."
   else
    # falseの場合、編集画面（edit）を再表示する
-   @books = Book.all
    render :edit
   end
  end
@@ -48,6 +47,7 @@ class BooksController < ApplicationController
   # データ（レコード）を削除
   book.destroy
   # index投稿一覧へリダイレクト
+  # フラッシュメッセージ
   redirect_to '/books', notice:
   flash[:notice] = "Book was successfully destroyed."
  end
