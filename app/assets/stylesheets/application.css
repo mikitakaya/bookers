@@ -63,3 +63,8 @@ div.field, div.actions {
  background-color: #c00;
  color: #fff;
 }
+
+#error_explanation ul li {
+ font-size: 12px;
+ list-style: square;
+}

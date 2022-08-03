@@ -27,9 +27,9 @@ class BooksController < ApplicationController
    # フラッシュメッセージ
    redirect_to book_path(@book.id), notice: "Book was successfully updated."
   else
-   # falseの場合、投稿一覧画面（index）を再表示する
+   # falseの場合、編集画面（edit）を再表示する
    @books = Book.all
-   render :index
+   render :edit
   end
  end
 
